@@ -140,24 +140,24 @@ export default function AdminDashboard() {
     <div className="max-w-5xl mx-auto mt-4 print:mt-0 print:p-0">
       
       {/* Print Header - Only visible when printing */}
-      <div className="hidden print:block text-center mb-4">
-        <div className="flex justify-center items-center gap-6 mb-2">
+      <div className="hidden print:block text-center mb-2">
+        <div className="flex justify-center items-center gap-6 mb-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/school-logo.jpg" alt="โรงเรียนปากช่อง" className="h-16 object-contain mix-blend-multiply" />
+          <img src="/school-logo.jpg" alt="โรงเรียนปากช่อง" className="h-14 object-contain mix-blend-multiply" />
           
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/msp-logo.jpg" alt="โครงการห้องเรียนพิเศษวิทยาศาสตร์สุขภาพและการแพทย์ (MSP)" className="h-14 object-contain mix-blend-multiply" />
+          <img src="/msp-logo.jpg" alt="โครงการห้องเรียนพิเศษวิทยาศาสตร์สุขภาพและการแพทย์ (MSP)" className="h-12 object-contain mix-blend-multiply" />
         </div>
-        <div className="text-center mt-1 mb-2 px-10">
-          <p className="text-lg font-extrabold text-gray-900 tracking-wide">
+        <div className="text-center mb-1 px-4">
+          <p className="text-base font-extrabold text-gray-900 tracking-wide">
             โครงการห้องเรียนพิเศษวิทยาศาสตร์สุขภาพและการแพทย์
           </p>
-          <p className="text-base font-bold text-gray-900">ระดับมัธยมศึกษาตอนปลาย</p>
+          <p className="text-sm font-bold text-gray-900">ระดับมัธยมศึกษาตอนปลาย</p>
         </div>
-        <h1 className="text-lg font-bold underline mt-2">
+        <h1 className="text-base font-bold underline mt-1">
           สรุปรายงานการฝึกงาน {filterType === 'daily' ? `ประจำวันที่ ${new Date(filterDate).toLocaleDateString("th-TH")}` : filterType === 'weekly' ? 'รายสัปดาห์' : 'ตลอดช่วงเวลา'}
         </h1>
-        <p className="text-sm mt-1 font-medium">ภาคเรียนที่ {term} ปีการศึกษา {academicYear}</p>
+        <p className="text-xs mt-1 font-medium">ภาคเรียนที่ {term} ปีการศึกษา {academicYear}</p>
       </div>
 
       <div className="print:hidden flex justify-between items-end mb-4">
@@ -310,7 +310,7 @@ export default function AdminDashboard() {
                         return url;
                       })()}
                       alt="Report photo" 
-                      className="w-full h-48 object-cover bg-gray-100 print:h-48"
+                      className="w-full h-48 object-cover bg-gray-100 print:h-40"
                       onError={(e) => {
                         // Fallback 1: Try export=view
                         if (e.currentTarget.src.includes('thumbnail')) {
@@ -319,9 +319,9 @@ export default function AdminDashboard() {
                         }
                       }}
                     />
-                    <div className="p-5 flex-1 print:p-4">
+                    <div className="p-5 flex-1 print:p-3">
                       <div className="flex justify-between items-start gap-2">
-                        <h3 className="font-bold text-lg text-gray-800 print:text-base">{report.intern.firstName}</h3>
+                        <h3 className="font-bold text-lg text-gray-800 print:text-sm">{report.intern.firstName}</h3>
                         <button
                           onClick={() => handleDeleteReport(report.id, report.intern.firstName)}
                           className="print:hidden text-red-600 hover:text-red-800 hover:bg-red-50 px-2 py-1 rounded-lg transition flex items-center gap-1 text-xs border border-red-200 shadow-sm"
